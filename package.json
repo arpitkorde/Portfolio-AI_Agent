@@ -1,6 +1,18 @@
 {
   "name": "portfolio-ai-agent",
   "version": "1.0.0",
+  "description": "An interactive AI-powered portfolio website featuring a dynamic resume parser and an intelligent AI agent capable of answering questions about my experience and skills.",
+  "author": "Chanchal Pathak",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "ai-agent",
+    "portfolio",
+    "resume-parser",
+    "gemini",
+    "ollama",
+    "typescript"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
