@@ -8,30 +8,45 @@ import BookingModal from './components/BookingModal';
 import { Mail, Github, Linkedin, Menu, X, Sparkles, Key, Info, Calendar } from 'lucide-react';
 import { CONTACT_INFO, SITE_CONFIG } from './constants';
 
-const App: React.FC = () => {
-  const [hasApiKey, setHasApiKey] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(false);
 
   useEffect(() => {
-    const checkKey = async () => {
-      if (window.aistudio) {
+    // Check if API key is already set in environment or local storage context
+    // Ideally we check if the backend/proxy has it, but here we just check if 
+    // we need to prompt the user. 
+    // For this template, we'll check if VITE_GEMINI_API_KEY is built-in
+    if (import.meta.env.VITE_GEMINI_API_KEY) {
+      setHasApiKey(true);
+      return;
+    }
+
+    // Check if we are in AI Studio context
+    if (window.aistudio && window.aistudio.hasSelectedApiKey) {
+      const checkKey = async () => {
         try {
           const hasKey = await window.aistudio.hasSelectedApiKey();
           setHasApiKey(hasKey);
         } catch (e) {
-          console.error("Error checking API key:", e);
+          console.error("Error checking specific API key:", e);
           setHasApiKey(false);
         }
-      } else {
-        // Fallback for local environments where aistudio is not defined
-        setHasApiKey(true);
-      }
-    };
-    checkKey();
+      };
+      checkKey();
+    }
   }, []);
+
+  const handleApiKeySubmit = (key: string) => {
+    // In a real app, save to context or local storage
+    // For now, we'll just set state to enable the UI
+    // The key itself matches what AIChat expects (it will ask again or look in env)
+    // Actually, AIChat handles key input itself if missing. 
+    // This top level check is just to show a "Welcome/Setup" screen if needed.
+    setHasApiKey(true);
+  };
 
   const handleSelectKey = async () => {
     if (window.aistudio) {
@@ -45,6 +60,9 @@ const App: React.FC = () => {
       }
     }
   };
+
+  const [isScrolled, setIsScrolled] = useState(false); // Re-adding from original, as it's used in Navigation (if Navigation is similar to original nav)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Re-adding from original
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,6 +86,7 @@ const App: React.FC = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
   ];
+
 
   if (!hasApiKey) {
     return (

@@ -9,87 +9,47 @@ const __dirname = path.dirname(__filename);
 // Helper to parse arguments
 const args = process.argv.slice(2);
 const resumePath = args[0];
-// Check for provider flag --provider=ollama or --provider=gemini
 const providerArg = args.find(arg => arg.startsWith('--provider='));
 const provider = providerArg ? providerArg.split('=')[1] : 'gemini';
+const apiKeyArg = args.find(arg => arg.startsWith('--api-key='));
+const cliApiKey = apiKeyArg ? apiKeyArg.split('=')[1] : null;
+
+// Helper to load .env file manually (to avoid adding dotenv dependency if not present)
+function loadEnv() {
+  const envPath = path.join(__dirname, '../.env');
+  if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf8');
+    const lines = envContent.split('\n');
+    lines.forEach(line => {
+      const match = line.match(/^([^=]+)=(.*)$/);
+      if (match) {
+        const key = match[1].trim();
+        const value = match[2].trim().replace(/^['"]|['"]$/g, ''); // Remove quotes
+        if (!process.env[key]) {
+          process.env[key] = value;
+        }
+      }
+    });
+    console.log("Loaded environment variables from .env");
+  }
+}
+
+loadEnv();
 
 if (!resumePath || resumePath.startsWith('--')) {
-  console.error("Usage: node scripts/generate-profile.js <path-to-resume.pdf> [--provider=gemini|ollama]");
+  console.error("Usage: node scripts/generate-profile.js <path-to-resume.pdf> [--provider=gemini|ollama] [--api-key=YOUR_KEY]");
   process.exit(1);
 }
 
-// ------------------------------------------------------------------
-// PROMPT
-// ------------------------------------------------------------------
-const PROMPT = `
-  You are an expert resume parser. Your goal is to extract structured data from the provided resume to populate a developer portfolio.
-  
-  Please extract the following information in JSON format:
-  {
-    "contact_info": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "location": "City, Country",
-      "linkedin": "LinkedIn URL",
-      "github": "GitHub URL"
-    },
-    "headline": "A short 1-sentence professional headline",
-    "availability_status": "Current job seeking status (e.g., 'Open to opportunities', 'Available for AI roles')",
-    "summary": "A professional summary of the candidate (max 3-4 sentences).",
-    "skills": [
-      {
-        "category": "Category Name (e.g., Frontend, Backend, AI)",
-        "items": ["Skill 1", "Skill 2"]
-      }
-    ],
-    "projects": [
-      {
-        "title": "Project Title",
-        "role": "Role in project",
-        "period": "Time period",
-        "description": "Brief description",
-        "techStack": ["Tech 1", "Tech 2"],
-        "features": ["Feature 1", "Feature 2"],
-        "impact": ["Impact 1", "Impact 2"],
-        "link": "Project URL"
-      }
-    ],
-    "experience": [
-      {
-        "company": "Company Name",
-        "role": "Job Title",
-        "location": "Location",
-        "period": "Time Period",
-        "highlights": ["Key achievement 1", "Key achievement 2"]
-      }
-    ],
-      "education": {
-      "degree": "Degree Name",
-      "university": "University Name",
-      "year": "Graduation Year"
-    },
-      "certifications": ["Cert 1", "Cert 2"],
-      "proficiency_balance": [
-        { "subject": "Category 1", "score": 90 },
-        { "subject": "Category 2", "score": 85 },
-        { "subject": "Category 3", "score": 80 },
-        { "subject": "Category 4", "score": 75 },
-        { "subject": "Category 5", "score": 70 },
-        { "subject": "Category 6", "score": 65 }
-      ]
-  }
+// ... (PROMPT constant remains the same) ...
 
-  IMPORTANT: Return ONLY the raw valid JSON. Do not include markdown formatting like \`\`\`json or \`\`\`.
-`;
-
-// ------------------------------------------------------------------
-// GEMINI IMPLEMENTATION
-// ------------------------------------------------------------------
 async function generateWithGemini(resumeContent) {
-  const API_KEY = process.env.GEMINI_API_KEY;
+  // Prioritize CLI arg, then GEMINI_API_KEY, then VITE_GEMINI_API_KEY
+  const API_KEY = cliApiKey || process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+
   if (!API_KEY) {
-    console.error("Error: GEMINI_API_KEY environment variable not set.");
+    console.error("Error: GEMINI_API_KEY (or VITE_GEMINI_API_KEY) environment variable not set.");
+    console.error("Please create a .env file, set the variable in your terminal, or pass --api-key=YOUR_KEY");
     process.exit(1);
   }
 
@@ -97,16 +57,11 @@ async function generateWithGemini(resumeContent) {
 
   // List of models to try in order of preference
   const MODELS_TO_TRY = [
-    "gemini-2.5-flash",
-    "gemini-3-pro-preview",
-    "gemini-2.0-flash-exp",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash",
-    "gemini-1.5-flash-latest",
-    "gemini-1.5-flash-001",
-    "gemini-1.5-flash-002",
+    "gemini-2.0-flash", // faster/cheaper, good for this
     "gemini-1.5-pro",
-    "gemini-1.5-pro-latest"
+    "gemini-1.5-flash",
+    "gemini-2.5-flash", // Fallbacks
+    "gemini-3-pro-preview" // Keeping as fallback just in case
   ];
 
   for (const modelName of MODELS_TO_TRY) {

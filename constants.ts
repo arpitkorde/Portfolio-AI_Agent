@@ -10,6 +10,8 @@ export const HEADLINE = profileData.headline || "Software Engineer & Architect";
 export const AVAILABILITY_STATUS = profileData.availability_status || "Available for New Opportunities";
 export const SUMMARY = profileData.summary;
 
+export const THEME = profileData.theme;
+
 export const SKILLS: Skill[] = profileData.skills;
 
 export const PROJECTS: Project[] = profileData.projects;

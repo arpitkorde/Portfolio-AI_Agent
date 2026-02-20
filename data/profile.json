@@ -4,28 +4,32 @@
     "email": "Chanchal031@gmail.com",
     "phone": "8589824666",
     "location": "Indore, India",
-    "linkedin": "",
-    "github": ""
+    "linkedin": null,
+    "github": null
   },
-  "headline": "Technology Lead at Infosys",
-  "availability_status": "Open to challenging opportunities in IT industry",
-  "summary": "Highly experienced Technology Lead with 9+ years in IT, specializing in mainframe COBOL applications. Proven expertise in designing, developing, testing, deploying, and maintaining complex systems. Currently leading mainframe modernization projects at Infosys. Experienced in client interaction, team leadership, and driving professional advancement through continuous learning and adaptation.",
+  "headline": "Technology Lead at Infosys with 10+ Years of Experience in Mainframe Modernization",
+  "availability_status": "Open to challenging IT opportunities, seeking professional advancement",
+  "summary": "Highly experienced Technology Lead with over 10 years in IT, specializing in mainframe Cobol application design, development, testing, and deployment. Currently leading Mainframe Modernization projects at Infosys, leveraging expertise in client interaction and team leadership. Proven track record in delivering complex projects, including migrations to cloud-based environments. Possesses strong communication, interpersonal, and mentoring skills, eager to contribute to cutting-edge IT developments.",
+  "theme": {
+    "primary": "#1f2937",
+    "secondary": "#374151",
+    "accent": "#06b6d4",
+    "vibe": "Modern Corporate"
+  },
   "skills": [
     {
-      "category": "Languages",
+      "category": "Mainframe Technologies",
       "items": [
         "COBOL",
         "JCL",
         "Easytrieve",
         "PL1",
-        "C++"
-      ]
-    },
-    {
-      "category": "Databases",
-      "items": [
-        "DB2",
-        "IMS-DB"
+        "CICS",
+        "VSAM",
+        "TSO",
+        "ISPF",
+        "IMS-DB",
+        "DB2"
       ]
     },
     {
@@ -42,236 +46,243 @@
         "SAR",
         "Elips",
         "Beta92",
-        "Bagman (version control tool)",
-        "MS-EXCEL",
-        "MS Word",
-        "Mail Merge",
-        "Jira",
-        "Azure board",
+        "Bagman (Version Control)"
+      ]
+    },
+    {
+      "category": "Modern Technologies & DevOps",
+      "items": [
         "Git",
+        "Jira",
+        "Azure Board",
         "Visual Studio",
         "Teamcity",
-        "Raincode"
+        "Raincode",
+        "AKS Container",
+        "Microservices"
+      ]
+    },
+    {
+      "category": "Programming Languages",
+      "items": [
+        "C++",
+        "COBOL",
+        "JCL",
+        "Easytrieve",
+        "PL1"
+      ]
+    },
+    {
+      "category": "Operating Systems",
+      "items": [
+        "Windows (9x/XP)",
+        "DOS"
       ]
     },
     {
       "category": "Concepts & Methodologies",
       "items": [
         "OOPS concept",
-        "CICS",
-        "VSAM",
-        "TSO",
-        "ISPF",
         "Agile Methodology",
         "SDLC"
-      ]
-    },
-    {
-      "category": "Operating Systems",
-      "items": [
-        "Windows 9x/XP",
-        "DOS"
-      ]
-    },
-    {
-      "category": "Domain Expertise",
-      "items": [
-        "Healthcare (Claims)",
-        "Retail",
-        "Insurance (PNC)"
       ]
     }
   ],
   "projects": [
     {
       "title": "C090 Migration to Raincode",
-      "role": "Technology Lead",
+      "role": "Technology Lead / Migration Specialist",
       "period": "March 2023 - Present",
-      "description": "Led the migration of a mainframe legacy application to Azure cloud using Raincode as the target environment for a major client. The project involved migrating 16 applications and setting up individual AKS Containers for batch and online applications.",
+      "description": "Led the migration of mainframe legacy applications to Azure cloud, utilizing Raincode as the target environment for a major client (John Hancock).",
       "techStack": [
         "Mainframe",
         "Raincode",
-        "Azure cloud",
-        "AKS Container"
+        "Azure Cloud",
+        "AKS Container",
+        "Microservices"
       ],
       "features": [
-        "Migrated 16 applications for John Hancock",
-        "Transitioned from monolithic architecture to microservices",
-        "Implemented for over 1200 batch jobs",
-        "Developed individual AKS Containers for applications"
+        "Migrated 16 applications (1200+ batch jobs)",
+        "Setup individual AKS Containers for batch/online applications",
+        "Transformed monolithic architecture to microservices",
+        "Contributed to migration of complex applications"
       ],
       "impact": [
-        "Successfully delivered a complex migration project",
-        "Contributed to the migration of the biggest chunk of applications",
-        "Supported dark launch activity, warranty, and post-implementation support",
-        "Provided training and support to junior team members"
+        "Successfully implemented an innovative migration to Azure cloud",
+        "Supported dark launch, warranty, and post-implementation",
+        "Trained junior team members and resolved complex issues"
       ],
-      "link": ""
+      "link": null
     },
     {
       "title": "LTA-Benefits NM",
-      "role": "Team Lead / BAS Application Maintenance and Support",
-      "period": "July 2022 - Present",
-      "description": "Responsible for the Maintenance and support of the BAS application for Northwestern Mutual, which is used for life policies, claim setup, and payments. Involved in agile methodology and leading a team.",
+      "role": "Developer / Team Lead",
+      "period": "March 2022 - February 2023",
+      "description": "Provided maintenance and support for the BAS application at Northwestern Mutual, covering life policies, claim setup, and payments.",
       "techStack": [
-        "Mail Merge",
-        "Agile Methodology"
+        "Agile Methodology",
+        "Mainframe (implied)"
       ],
       "features": [
-        "Maintenance and support of BAS application",
-        "Implemented user stories in production",
-        "Worked on forms and letter changes using mail merge",
-        "Performed deployment activities (CR, checkout plan, TCR, code review)"
-      ],
-      "impact": [
-        "Successfully delivered and implemented numerous user stories",
+        "Delivered numerous user stories in production",
+        "Implemented forms and letter changes using mail merge",
+        "Managed deployment activities (CR, checkout plan, TCR, code review)",
         "Led a team of two members"
       ],
-      "link": ""
+      "impact": [
+        "Ensured smooth operation and enhancement of critical BAS application",
+        "Successfully delivered production-ready features via Agile practices",
+        "Streamlined deployment processes and mentored team"
+      ],
+      "link": null
     },
     {
-      "title": "SOL",
-      "role": "Software Engineer",
+      "title": "SOL Project (RSA Insurance)",
+      "role": "Mainframe Developer",
       "period": "November 2020 - February 2022",
-      "description": "Implemented a core policy solution for Personal Accident (PA) based on the existing Motor and House & Content (HAC) platform for RSA Insurance Group. This project was part of an overall IT roadmap to deliver business benefits.",
+      "description": "Implemented a core policy solution (SOL) for RSA Insurance Group plc, based on the structure and platform of existing Motor and House & Content (HAC) systems.",
       "techStack": [
+        "Agile Methodology",
         "DB2",
-        "Agile Methodology"
+        "Mainframe (implied)"
       ],
       "features": [
-        "New module developed for converting old PA policies to the new SOL system",
-        "Performed code changes based on business requirements",
-        "Wrote and performed Unit Testing"
+        "Developed new modules for converting old policies to the new SOL system",
+        "Implemented code changes based on business requirements",
+        "Wrote and performed Unit testing",
+        "Utilized DB2 extensively"
       ],
       "impact": [
-        "Successfully delivered and implemented user stories in production",
-        "Contributed to a major IT roadmap initiative"
+        "Successfully delivered and implemented a core policy solution",
+        "Ensured accurate data conversion and policy management",
+        "Contributed to overall IT roadmap for policy system benefits"
       ],
-      "link": ""
+      "link": null
     },
     {
-      "title": "RSA",
-      "role": "Software Engineer",
+      "title": "RSA Motor & Konto Application Development",
+      "role": "Mainframe Developer",
       "period": "December 2016 - November 2019",
-      "description": "Worked on the Motor application within the RSA system for Trygg Hansa, which is a highly complex system comprising online screens and a strong set of Batch Jobs (JCLs). Also worked on the Konto application handling finance for the policy system.",
-      "techStack": [
-        "JCL",
-        "DB2",
-        "CRM tool",
-        "Agile Methodology"
-      ],
-      "features": [
-        "Developed and implemented code for new leasing customers from scratch",
-        "Prepared test plans and documents (UTP, UTR)",
-        "Performed Unit and System testing",
-        "Involved in data analysis for CRM tool",
-        "Collected and updated policy data from various tables"
-      ],
-      "impact": [
-        "Successfully delivered and implemented numerous user stories in production",
-        "Provided daily production support, analyzing and resolving abends and critical incidents"
-      ],
-      "link": ""
-    },
-    {
-      "title": "RS6",
-      "role": "Software Engineer",
-      "period": "April 2016 - November 2016",
-      "description": "A migration project for Boots UK from mainframe to SAP technology. Involved understanding requirements, following SDLC, and developing/testing code.",
+      "description": "Developed and maintained critical Motor and Konto applications for RSA Insurance Group plc, managing complex online screens and batch jobs.",
       "techStack": [
         "Mainframe",
-        "SAP",
-        "DB2",
         "JCL",
-        "SDLC"
+        "DB2 (implied)"
       ],
       "features": [
-        "Developed code in DB2 database",
-        "Coded new modules and amended existing ones",
-        "Prepared test plan and test documents (UTP, UTR)",
-        "Performed Unit and System testing"
+        "Worked on the Motor application (biggest and most complex system)",
+        "Managed extensive online screens and strong set of Batch Jobs (JCL's)",
+        "Worked on the Konto application handling finance for policies"
       ],
       "impact": [
-        "Successfully contributed to a mainframe to SAP migration project"
+        "Ensured stability and functionality of critical insurance systems",
+        "Managed complex mainframe applications developed in 1995",
+        "Contributed to core financial processes for policies"
       ],
-      "link": ""
+      "link": null
     },
     {
-      "title": "Accum Load",
-      "role": "Software Engineer",
-      "period": "April 2015 - March 2015",
-      "description": "A data transfer project for Anthem Inc., involving loading member and accumulation data from various vendors into the production environment after detailed analysis.",
+      "title": "RS6 Mainframe to SAP Migration",
+      "role": "Migration Developer",
+      "period": "April 2016 - November 2016",
+      "description": "Participated in a significant migration project from mainframe to SAP technology for Boots UK, a major pharmacy chain.",
       "techStack": [
+        "Mainframe",
+        "SAP (target)",
         "DB2",
-        "JCL"
+        "CRM Tool"
       ],
       "features": [
-        "Interacted directly with clients for requirement analysis",
-        "Created preload and mismatch reports",
-        "Loaded and validated data in production"
+        "Developed and implemented code for new leasing customer files",
+        "Prepared test plans (UTP, UTR) and performed Unit testing",
+        "Involved in data analysis for CRM and policy data collection",
+        "Provided daily production support and resolved incidents/abends"
       ],
       "impact": [
-        "Successfully managed and executed data transfer processes for Anthem"
+        "Contributed to a critical technology migration for Boots UK",
+        "Ensured data integrity and system stability during migration phase",
+        "Addressed production issues to maintain business continuity"
       ],
-      "link": ""
+      "link": null
     },
     {
-      "title": "WGS Claims SSCR (Small System Change Request)",
-      "role": "Software Engineer",
-      "period": "January 2014 - April 2015",
-      "description": "A maintenance project for Anthem Inc. where code and system modifications were performed based on client requirements. Involved comprehensive claims processing and system updates.",
+      "title": "Accum Load Data Transfer",
+      "role": "Data Transfer Specialist / Mainframe Developer",
+      "period": "April 2015 - June 2015",
+      "description": "Managed a data transfer project for Anthem, involving the loading of member and accum data into the production environment.",
       "techStack": [
+        "DB2 (implied)",
+        "SDLC",
+        "Mainframe (implied)"
+      ],
+      "features": [
+        "Understood project requirements and followed SDLC",
+        "Designed solution proposals and functional specifications",
+        "Developed code and amended existing modules in DB2",
+        "Prepared test plans and performed Unit testing"
+      ],
+      "impact": [
+        "Successfully transferred and loaded critical member and accum data",
+        "Ensured data accuracy and integrity in the production environment",
+        "Contributed to all phases of the project lifecycle"
+      ],
+      "link": null
+    },
+    {
+      "title": "WGS Claims SSCR Maintenance Project",
+      "role": "Mainframe Developer / Analyst",
+      "period": "January 2014 - April 2015",
+      "description": "Maintained and modified the WGS Claims system for Anthem as per client requirements, focusing on claims processing.",
+      "techStack": [
+        "Mainframe",
         "IBM Debug Tool (DT)",
         "Changeman",
         "File Manager",
-        "JCL"
+        "DB2 (implied)"
       ],
       "features": [
-        "Designed and implemented solutions, created reports",
-        "Debugged code using IBM Debug Tool",
-        "Used Changeman for managing modules",
-        "Worked with claims processing (logging, PAC, Image, history update) via online screens and batch jobs"
+        "Built design plans and functional specifications",
+        "Debugged code using IBM DT",
+        "Managed packages with Changeman",
+        "Processed claims (logging, PAC, Image, history update) via online/batch"
       ],
       "impact": [
-        "Resolved various SIT issues and defects",
-        "Provided knowledge transfer sessions to junior team members"
+        "Ensured continuous functionality and updates of critical claims system",
+        "Improved system reliability through rigorous testing and debugging",
+        "Provided knowledge transfer to junior and new team members"
       ],
-      "link": ""
+      "link": null
     }
   ],
   "experience": [
     {
       "company": "Infosys",
       "role": "Technology Lead",
-      "location": "Global / Remote (Client locations included Stockholm, Sweden)",
+      "location": "India",
       "period": "March 2023 - Present",
       "highlights": [
-        "Leading Mainframe Modernization projects, including complex migrations to Azure cloud on Raincode.",
-        "Managing the design, development, testing, deployment, and maintenance of mainframe COBOL applications.",
-        "Providing training and support to junior team members, fostering skill development and knowledge transfer."
+        "Currently leading Mainframe Modernization projects, contributing to cutting-edge IT developments.",
+        "Ability to lead, motivate, and influence team members, adapting to various scenarios and eager to learn new technologies."
       ]
     },
     {
-      "company": "DXC Technology SEI CMMI Level 5 company",
+      "company": "DXC Technology",
       "role": "Software Engineer",
-      "location": "Global / Remote (Client locations included Stockholm, Sweden, Nottingham, UK)",
+      "location": "India / Sweden",
       "period": "November 2016 - February 2021",
       "highlights": [
-        "Worked on various projects including RSA (Motor & Konto applications) and RS6 (Mainframe to SAP migration).",
-        "Gained experience at client location in Stockholm, Sweden for 8 months.",
-        "Contributed to Agile-based development, writing code from scratch, and resolving critical incidents.",
-        "Received Spot Awards multiple times for working on critical projects and exceptional performance in C090 migration."
+        "Worked in a SEI CMMI Level 5 company, gaining extensive experience in mainframe Cobol applications (design, development, testing, deployment, maintenance).",
+        "Worked at client location Stockholm, Sweden for 8 months (November 2019 to July 2020), demonstrating international exposure and client interaction skills."
       ]
     },
     {
       "company": "UST Global",
       "role": "Software Engineer",
-      "location": "Global / Remote (Client locations included USA)",
+      "location": "India",
       "period": "October 2013 - November 2016",
       "highlights": [
-        "Developed extensive hands-on experience in mainframe COBOL application design, development, testing, deployment, and maintenance.",
-        "Contributed to projects like Accum Load and WGS Claims SSCR for Anthem, focusing on data transfer and system maintenance.",
-        "Awarded Q2, 2014 Spot Award for “Execution Mindset” in Edits Validation and pricing Project and Q2, 2015 R&R Award for “Execution Mindset” in Accum load Project."
+        "Gained hands-on expertise in designing, developing, testing, deploying, and maintaining mainframe Cobol applications.",
+        "Contributed to core development and maintenance activities, ensuring robust application performance."
       ]
     }
   ],
@@ -281,37 +292,33 @@
     "year": "2013"
   },
   "certifications": [
-    "Mainframe Technology Training (October 2013 - December 2013)",
-    "Skillport Technical Certification",
-    "Skillport Communication Certification",
-    "Skillport Organizational Behavior Certification",
-    "Skillport Business English Certification",
-    "Skillport ISMS Certification"
+    "Mainframe Technology (October 2013 - December 2013)",
+    "Skillport Certifications (Technical, Communication, Organizational Behavior, Business English, ISMS)"
   ],
   "proficiency_balance": [
     {
       "subject": "Mainframe Development",
-      "score": 95
-    },
-    {
-      "subject": "Insurance Domain",
       "score": 90
     },
     {
-      "subject": "Healthcare Domain",
+      "subject": "Migration & Modernization",
+      "score": 85
+    },
+    {
+      "subject": "Project Leadership",
       "score": 80
     },
     {
-      "subject": "Cloud Migration",
+      "subject": "Agile Methodologies",
       "score": 75
     },
     {
-      "subject": "Agile Methodologies",
-      "score": 70
+      "subject": "Database Management (DB2)",
+      "score": 88
     },
     {
-      "subject": "Project Leadership & Mentoring",
-      "score": 70
+      "subject": "Client Interaction & Mentoring",
+      "score": 82
     }
   ]
 }
