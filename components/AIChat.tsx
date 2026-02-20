@@ -351,15 +351,33 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
       parts: [{ text: m.text }]
     }));
 
+    const CHAT_MODELS = [
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash',
+    ];
+
     try {
-      let currentResponse = await ai.models.generateContent({
-        model: 'gemini-1.5-flash', // Updated to Flash for better availability
-        contents: contents,
-        config: {
-          systemInstruction,
-          tools: [{ functionDeclarations: [checkAvailabilityTool, bookMeetingTool, openSchedulerTool] }]
+      let currentResponse: any = null;
+      let usedModel = '';
+
+      for (const modelName of CHAT_MODELS) {
+        try {
+          currentResponse = await ai.models.generateContent({
+            model: modelName,
+            contents: contents,
+            config: {
+              systemInstruction,
+              tools: [{ functionDeclarations: [checkAvailabilityTool, bookMeetingTool, openSchedulerTool] }]
+            }
+          });
+          usedModel = modelName;
+          break; // success, stop trying
+        } catch (modelErr: any) {
+          console.warn(`Model ${modelName} failed:`, modelErr?.message);
+          if (modelName === CHAT_MODELS[CHAT_MODELS.length - 1]) throw modelErr; // rethrow on last model
         }
-      });
+      }
 
       // Function Calling Loop
       let turns = 0;
@@ -399,7 +417,7 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
         contents.push({ role: 'user', parts: parts });
 
         currentResponse = await ai.models.generateContent({
-          model: 'gemini-1.5-flash',
+          model: usedModel,
           contents: contents,
           config: {
             systemInstruction,
@@ -418,8 +436,15 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
       return text;
 
     } catch (e: any) {
-      console.error("Agent Error", e);
-      return "I encountered an error connecting to the system. Please try again.";
+      console.error("Agent Error:", e);
+      const errMsg = e?.message || String(e);
+      if (errMsg.includes('API_KEY') || errMsg.includes('401') || errMsg.includes('403')) {
+        return "⚠️ Invalid or missing API key. Please check your `VITE_GEMINI_API_KEY` in `.env` and restart the dev server.";
+      }
+      if (errMsg.includes('not found') || errMsg.includes('404')) {
+        return "⚠️ The AI model is currently unavailable. Please try again shortly.";
+      }
+      return `I encountered an error: ${errMsg.slice(0, 120)}. Please try again.`;
     }
   };
 
