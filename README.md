@@ -24,7 +24,7 @@ A modern, AI-powered developer portfolio template featuring a voice-enabled AI a
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/Portfolio-AI_Agent.git
+    git clone https://github.com/arpitkorde/Portfolio-AI_Agent.git
     cd Portfolio-AI_Agent
     ```
 
