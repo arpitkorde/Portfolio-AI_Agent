@@ -1,0 +1,117 @@
+{
+    "contact_info": {
+        "name": "Alex Developer",
+        "email": "alex@example.com",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA",
+        "linkedin": "https://linkedin.com/in/alexdev",
+        "github": "https://github.com/alexdev",
+        "calendar": ""
+    },
+    "headline": "Building Scalable Cloud & AI Solutions",
+    "summary": "Passionate Full Stack Developer with 5 years of experience building scalable web applications. Expert in React, Node.js, and Cloud Architecture. Dedicated to writing clean, maintainable code and solving complex problems.",
+    "skills": [
+        {
+            "category": "Frontend",
+            "items": [
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Next.js"
+            ]
+        },
+        {
+            "category": "Backend",
+            "items": [
+                "Node.js",
+                "Express",
+                "PostgreSQL",
+                "Redis"
+            ]
+        },
+        {
+            "category": "DevOps",
+            "items": [
+                "Docker",
+                "AWS",
+                "CI/CD",
+                "Terraform"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "E-Commerce Platform",
+            "role": "Lead Developer",
+            "period": "2024 - Present",
+            "description": "A high-performance e-commerce solution serving 50k+ monthly users.",
+            "techStack": [
+                "React",
+                "Node.js",
+                "PostgreSQL"
+            ],
+            "features": [
+                "Real-time inventory",
+                "AI-powered recommendations",
+                "Stripe integration"
+            ],
+            "impact": [
+                "Increased sales by 40%",
+                "Reduced load time by 50%"
+            ],
+            "link": "https://example.com"
+        },
+        {
+            "title": "Task Management App",
+            "role": "Frontend Developer",
+            "period": "2023",
+            "description": "A collaborative task management tool for remote teams.",
+            "techStack": [
+                "Vue.js",
+                "Firebase",
+                "Tailwind"
+            ],
+            "features": [
+                "Real-time sync",
+                "Drag and drop interface",
+                "Team chat"
+            ],
+            "impact": [
+                "Adopted by 10+ teams",
+                "Improved team productivity by 20%"
+            ],
+            "link": "https://example.com"
+        }
+    ],
+    "experience": [
+        {
+            "company": "Tech Solutions Inc.",
+            "role": "Senior Software Engineer",
+            "location": "San Francisco, CA",
+            "period": "2022 - Present",
+            "highlights": [
+                "Architected microservices",
+                "Mentored junior devs"
+            ]
+        },
+        {
+            "company": "Startup Hub",
+            "role": "Software Engineer",
+            "location": "Remote",
+            "period": "2020 - 2022",
+            "highlights": [
+                "Built MVP",
+                "Scaled to 10k users"
+            ]
+        }
+    ],
+    "education": {
+        "degree": "B.S. Computer Science",
+        "university": "Tech University",
+        "year": "2020"
+    },
+    "certifications": [
+        "AWS Certified Solutions Architect",
+        "Google Cloud Professional Developer"
+    ]
+}

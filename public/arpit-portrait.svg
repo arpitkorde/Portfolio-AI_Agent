@@ -1,0 +1,40 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+   <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+   <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+  </linearGradient>
+  <clipPath id="circleClip">
+   <circle cx="200" cy="200" r="190" />
+  </clipPath>
+ </defs>
+ <g clip-path="url(#circleClip)">
+  <rect width="400" height="400" fill="url(#bg)"/>
+  
+  <!-- Shoulders -->
+  <path d="M50 400 Q 200 300 350 400 V 450 H 50 Z" fill="#3b82f6" />
+  
+  <!-- Neck -->
+  <rect x="160" y="280" width="80" height="60" fill="#f0d5be" />
+  
+  <!-- Face -->
+  <ellipse cx="200" cy="220" rx="90" ry="110" fill="#f0d5be" />
+  
+  <!-- Hair -->
+  <path d="M100 200 Q 200 100 300 200 C 310 240 290 260 290 220 Q 200 140 110 220 C 110 260 90 240 100 200 Z" fill="#1f1f1f" />
+  
+  <!-- Glasses Frame -->
+  <g stroke="#1e293b" stroke-width="6" fill="none">
+   <rect x="130" y="200" width="60" height="40" rx="10" />
+   <rect x="210" y="200" width="60" height="40" rx="10" />
+   <line x1="190" y1="220" x2="210" y2="220" />
+  </g>
+  
+  <!-- Eyes -->
+  <circle cx="160" cy="220" r="6" fill="#1e293b" />
+  <circle cx="240" cy="220" r="6" fill="#1e293b" />
+  
+  <!-- Smile -->
+  <path d="M170 280 Q 200 300 230 280" stroke="#5c3a3a" stroke-width="4" fill="none" />
+ </g>
+</svg>
