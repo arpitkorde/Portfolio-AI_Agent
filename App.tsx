@@ -205,7 +205,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} Arpit Korde. All rights reserved.
+            © {new Date().getFullYear()} {SITE_CONFIG.userName}. All rights reserved.
           </div>
         </div>
       </footer>
