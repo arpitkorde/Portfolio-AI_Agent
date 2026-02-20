@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Bot, Github, Linkedin } from 'lucide-react';
-import { CONTACT_INFO, HEADLINE, SITE_CONFIG, PROJECTS } from '../constants';
+import { CONTACT_INFO, HEADLINE, SITE_CONFIG, PROJECTS, AVAILABILITY_STATUS } from '../constants';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenBooking, onOpenChat }) => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
-            Available for AI Product Roles
+            {AVAILABILITY_STATUS}
           </div>
 
           {/* Main Title */}

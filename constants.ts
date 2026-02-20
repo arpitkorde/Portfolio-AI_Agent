@@ -7,6 +7,7 @@ export const CONTACT_INFO: ContactInfo = {
 };
 
 export const HEADLINE = profileData.headline || "Software Engineer & Architect";
+export const AVAILABILITY_STATUS = profileData.availability_status || "Available for New Opportunities";
 export const SUMMARY = profileData.summary;
 
 export const SKILLS: Skill[] = profileData.skills;
@@ -18,6 +19,15 @@ export const EXPERIENCE: Experience[] = profileData.experience;
 export const EDUCATION: Education = profileData.education;
 
 export const CERTIFICATIONS = profileData.certifications;
+
+export const PROFICIENCY_BALANCE = profileData.proficiency_balance || [
+  { subject: 'Generative AI', score: 95 },
+  { subject: 'React / FE', score: 90 },
+  { subject: 'Cloud / Dev', score: 85 },
+  { subject: 'Product Strategy', score: 88 },
+  { subject: 'Data / Ops', score: 80 },
+  { subject: 'Automation', score: 92 },
+];
 
 export const SITE_CONFIG = {
   userName: profileData.contact_info.name,

@@ -17,7 +17,8 @@ A modern, AI-powered developer portfolio template featuring a voice-enabled AI a
 ## ✅ Prerequisites
 
 - Node.js (v18+)
-- Google Cloud Project with **Gemini API** enabled
+- Google Cloud Project with **Gemini API** enabled (for Gemini model)
+- **Ollama** installed locally (for local model support)
 - A PDF or Text version of your Resume
 
 ## 🚀 Quick Start
@@ -43,8 +44,14 @@ A modern, AI-powered developer portfolio template featuring a voice-enabled AI a
     Place your resume file (e.g., `resume.pdf`) in the root directory.
     Run the generation script:
     ```bash
-    # Usage: node scripts/generate-profile.js <path-to-resume> <api-key>
-    node scripts/generate-profile.js ./resume.pdf your_gemini_api_key_here
+    # Usage: node scripts/generate-profile.js <path-to-resume.pdf> [--provider=gemini|ollama]
+    
+    # Option A: Use Gemini (Default)
+    node scripts/generate-profile.js ./resume.pdf
+
+    # Option B: Use Ollama (Local)
+    # Ensure Ollama is running first!
+    node scripts/generate-profile.js ./resume.pdf --provider=ollama
     ```
     This will create `src/data/profile.json`.
 
@@ -53,6 +60,23 @@ A modern, AI-powered developer portfolio template featuring a voice-enabled AI a
     npm run dev
     ```
     Visit `http://localhost:5173` to see your portfolio!
+
+5.  **Run with Ollama (Local AI)**
+    To use the local AI model in the chat interface:
+    1.  Install [Ollama](https://ollama.com/).
+    2.  Pull the Llama 3.2 model:
+        ```bash
+        ollama pull llama3.2
+        ```
+    3.  Run Ollama with CORS enabled (Required for browser access):
+        ```bash
+        # Linux/Mac
+        OLLAMA_ORIGINS="*" ollama serve
+
+        # Windows (Powershell)
+        $env:OLLAMA_ORIGINS="*"; ollama serve
+        ```
+    4.  In the portfolio chat interface, toggle the provider to **OLLAMA**.
 
 ## ⚙️ Configuration
 

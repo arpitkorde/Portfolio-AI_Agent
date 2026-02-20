@@ -1,117 +1,317 @@
 {
-    "contact_info": {
-        "name": "Alex Developer",
-        "email": "alex@example.com",
-        "phone": "+1 (555) 123-4567",
-        "location": "San Francisco, CA",
-        "linkedin": "https://linkedin.com/in/alexdev",
-        "github": "https://github.com/alexdev",
-        "calendar": ""
+  "contact_info": {
+    "name": "Chanchal Pathak",
+    "email": "Chanchal031@gmail.com",
+    "phone": "8589824666",
+    "location": "Indore, India",
+    "linkedin": "",
+    "github": ""
+  },
+  "headline": "Technology Lead at Infosys",
+  "availability_status": "Open to challenging opportunities in IT industry",
+  "summary": "Highly experienced Technology Lead with 9+ years in IT, specializing in mainframe COBOL applications. Proven expertise in designing, developing, testing, deploying, and maintaining complex systems. Currently leading mainframe modernization projects at Infosys. Experienced in client interaction, team leadership, and driving professional advancement through continuous learning and adaptation.",
+  "skills": [
+    {
+      "category": "Languages",
+      "items": [
+        "COBOL",
+        "JCL",
+        "Easytrieve",
+        "PL1",
+        "C++"
+      ]
     },
-    "headline": "Building Scalable Cloud & AI Solutions",
-    "summary": "Passionate Full Stack Developer with 5 years of experience building scalable web applications. Expert in React, Node.js, and Cloud Architecture. Dedicated to writing clean, maintainable code and solving complex problems.",
-    "skills": [
-        {
-            "category": "Frontend",
-            "items": [
-                "React",
-                "TypeScript",
-                "Tailwind CSS",
-                "Next.js"
-            ]
-        },
-        {
-            "category": "Backend",
-            "items": [
-                "Node.js",
-                "Express",
-                "PostgreSQL",
-                "Redis"
-            ]
-        },
-        {
-            "category": "DevOps",
-            "items": [
-                "Docker",
-                "AWS",
-                "CI/CD",
-                "Terraform"
-            ]
-        }
-    ],
-    "projects": [
-        {
-            "title": "E-Commerce Platform",
-            "role": "Lead Developer",
-            "period": "2024 - Present",
-            "description": "A high-performance e-commerce solution serving 50k+ monthly users.",
-            "techStack": [
-                "React",
-                "Node.js",
-                "PostgreSQL"
-            ],
-            "features": [
-                "Real-time inventory",
-                "AI-powered recommendations",
-                "Stripe integration"
-            ],
-            "impact": [
-                "Increased sales by 40%",
-                "Reduced load time by 50%"
-            ],
-            "link": "https://example.com"
-        },
-        {
-            "title": "Task Management App",
-            "role": "Frontend Developer",
-            "period": "2023",
-            "description": "A collaborative task management tool for remote teams.",
-            "techStack": [
-                "Vue.js",
-                "Firebase",
-                "Tailwind"
-            ],
-            "features": [
-                "Real-time sync",
-                "Drag and drop interface",
-                "Team chat"
-            ],
-            "impact": [
-                "Adopted by 10+ teams",
-                "Improved team productivity by 20%"
-            ],
-            "link": "https://example.com"
-        }
-    ],
-    "experience": [
-        {
-            "company": "Tech Solutions Inc.",
-            "role": "Senior Software Engineer",
-            "location": "San Francisco, CA",
-            "period": "2022 - Present",
-            "highlights": [
-                "Architected microservices",
-                "Mentored junior devs"
-            ]
-        },
-        {
-            "company": "Startup Hub",
-            "role": "Software Engineer",
-            "location": "Remote",
-            "period": "2020 - 2022",
-            "highlights": [
-                "Built MVP",
-                "Scaled to 10k users"
-            ]
-        }
-    ],
-    "education": {
-        "degree": "B.S. Computer Science",
-        "university": "Tech University",
-        "year": "2020"
+    {
+      "category": "Databases",
+      "items": [
+        "DB2",
+        "IMS-DB"
+      ]
     },
-    "certifications": [
-        "AWS Certified Solutions Architect",
-        "Google Cloud Professional Developer"
-    ]
+    {
+      "category": "Tools & Utilities",
+      "items": [
+        "File-Manager (IBM)",
+        "Debugging Tool (IBM)",
+        "Fault-Analyzer (IBM)",
+        "FMIMS",
+        "Changeman",
+        "Tablebase",
+        "Control-M",
+        "FAID",
+        "SAR",
+        "Elips",
+        "Beta92",
+        "Bagman (version control tool)",
+        "MS-EXCEL",
+        "MS Word",
+        "Mail Merge",
+        "Jira",
+        "Azure board",
+        "Git",
+        "Visual Studio",
+        "Teamcity",
+        "Raincode"
+      ]
+    },
+    {
+      "category": "Concepts & Methodologies",
+      "items": [
+        "OOPS concept",
+        "CICS",
+        "VSAM",
+        "TSO",
+        "ISPF",
+        "Agile Methodology",
+        "SDLC"
+      ]
+    },
+    {
+      "category": "Operating Systems",
+      "items": [
+        "Windows 9x/XP",
+        "DOS"
+      ]
+    },
+    {
+      "category": "Domain Expertise",
+      "items": [
+        "Healthcare (Claims)",
+        "Retail",
+        "Insurance (PNC)"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "C090 Migration to Raincode",
+      "role": "Technology Lead",
+      "period": "March 2023 - Present",
+      "description": "Led the migration of a mainframe legacy application to Azure cloud using Raincode as the target environment for a major client. The project involved migrating 16 applications and setting up individual AKS Containers for batch and online applications.",
+      "techStack": [
+        "Mainframe",
+        "Raincode",
+        "Azure cloud",
+        "AKS Container"
+      ],
+      "features": [
+        "Migrated 16 applications for John Hancock",
+        "Transitioned from monolithic architecture to microservices",
+        "Implemented for over 1200 batch jobs",
+        "Developed individual AKS Containers for applications"
+      ],
+      "impact": [
+        "Successfully delivered a complex migration project",
+        "Contributed to the migration of the biggest chunk of applications",
+        "Supported dark launch activity, warranty, and post-implementation support",
+        "Provided training and support to junior team members"
+      ],
+      "link": ""
+    },
+    {
+      "title": "LTA-Benefits NM",
+      "role": "Team Lead / BAS Application Maintenance and Support",
+      "period": "July 2022 - Present",
+      "description": "Responsible for the Maintenance and support of the BAS application for Northwestern Mutual, which is used for life policies, claim setup, and payments. Involved in agile methodology and leading a team.",
+      "techStack": [
+        "Mail Merge",
+        "Agile Methodology"
+      ],
+      "features": [
+        "Maintenance and support of BAS application",
+        "Implemented user stories in production",
+        "Worked on forms and letter changes using mail merge",
+        "Performed deployment activities (CR, checkout plan, TCR, code review)"
+      ],
+      "impact": [
+        "Successfully delivered and implemented numerous user stories",
+        "Led a team of two members"
+      ],
+      "link": ""
+    },
+    {
+      "title": "SOL",
+      "role": "Software Engineer",
+      "period": "November 2020 - February 2022",
+      "description": "Implemented a core policy solution for Personal Accident (PA) based on the existing Motor and House & Content (HAC) platform for RSA Insurance Group. This project was part of an overall IT roadmap to deliver business benefits.",
+      "techStack": [
+        "DB2",
+        "Agile Methodology"
+      ],
+      "features": [
+        "New module developed for converting old PA policies to the new SOL system",
+        "Performed code changes based on business requirements",
+        "Wrote and performed Unit Testing"
+      ],
+      "impact": [
+        "Successfully delivered and implemented user stories in production",
+        "Contributed to a major IT roadmap initiative"
+      ],
+      "link": ""
+    },
+    {
+      "title": "RSA",
+      "role": "Software Engineer",
+      "period": "December 2016 - November 2019",
+      "description": "Worked on the Motor application within the RSA system for Trygg Hansa, which is a highly complex system comprising online screens and a strong set of Batch Jobs (JCLs). Also worked on the Konto application handling finance for the policy system.",
+      "techStack": [
+        "JCL",
+        "DB2",
+        "CRM tool",
+        "Agile Methodology"
+      ],
+      "features": [
+        "Developed and implemented code for new leasing customers from scratch",
+        "Prepared test plans and documents (UTP, UTR)",
+        "Performed Unit and System testing",
+        "Involved in data analysis for CRM tool",
+        "Collected and updated policy data from various tables"
+      ],
+      "impact": [
+        "Successfully delivered and implemented numerous user stories in production",
+        "Provided daily production support, analyzing and resolving abends and critical incidents"
+      ],
+      "link": ""
+    },
+    {
+      "title": "RS6",
+      "role": "Software Engineer",
+      "period": "April 2016 - November 2016",
+      "description": "A migration project for Boots UK from mainframe to SAP technology. Involved understanding requirements, following SDLC, and developing/testing code.",
+      "techStack": [
+        "Mainframe",
+        "SAP",
+        "DB2",
+        "JCL",
+        "SDLC"
+      ],
+      "features": [
+        "Developed code in DB2 database",
+        "Coded new modules and amended existing ones",
+        "Prepared test plan and test documents (UTP, UTR)",
+        "Performed Unit and System testing"
+      ],
+      "impact": [
+        "Successfully contributed to a mainframe to SAP migration project"
+      ],
+      "link": ""
+    },
+    {
+      "title": "Accum Load",
+      "role": "Software Engineer",
+      "period": "April 2015 - March 2015",
+      "description": "A data transfer project for Anthem Inc., involving loading member and accumulation data from various vendors into the production environment after detailed analysis.",
+      "techStack": [
+        "DB2",
+        "JCL"
+      ],
+      "features": [
+        "Interacted directly with clients for requirement analysis",
+        "Created preload and mismatch reports",
+        "Loaded and validated data in production"
+      ],
+      "impact": [
+        "Successfully managed and executed data transfer processes for Anthem"
+      ],
+      "link": ""
+    },
+    {
+      "title": "WGS Claims SSCR (Small System Change Request)",
+      "role": "Software Engineer",
+      "period": "January 2014 - April 2015",
+      "description": "A maintenance project for Anthem Inc. where code and system modifications were performed based on client requirements. Involved comprehensive claims processing and system updates.",
+      "techStack": [
+        "IBM Debug Tool (DT)",
+        "Changeman",
+        "File Manager",
+        "JCL"
+      ],
+      "features": [
+        "Designed and implemented solutions, created reports",
+        "Debugged code using IBM Debug Tool",
+        "Used Changeman for managing modules",
+        "Worked with claims processing (logging, PAC, Image, history update) via online screens and batch jobs"
+      ],
+      "impact": [
+        "Resolved various SIT issues and defects",
+        "Provided knowledge transfer sessions to junior team members"
+      ],
+      "link": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "Infosys",
+      "role": "Technology Lead",
+      "location": "Global / Remote (Client locations included Stockholm, Sweden)",
+      "period": "March 2023 - Present",
+      "highlights": [
+        "Leading Mainframe Modernization projects, including complex migrations to Azure cloud on Raincode.",
+        "Managing the design, development, testing, deployment, and maintenance of mainframe COBOL applications.",
+        "Providing training and support to junior team members, fostering skill development and knowledge transfer."
+      ]
+    },
+    {
+      "company": "DXC Technology SEI CMMI Level 5 company",
+      "role": "Software Engineer",
+      "location": "Global / Remote (Client locations included Stockholm, Sweden, Nottingham, UK)",
+      "period": "November 2016 - February 2021",
+      "highlights": [
+        "Worked on various projects including RSA (Motor & Konto applications) and RS6 (Mainframe to SAP migration).",
+        "Gained experience at client location in Stockholm, Sweden for 8 months.",
+        "Contributed to Agile-based development, writing code from scratch, and resolving critical incidents.",
+        "Received Spot Awards multiple times for working on critical projects and exceptional performance in C090 migration."
+      ]
+    },
+    {
+      "company": "UST Global",
+      "role": "Software Engineer",
+      "location": "Global / Remote (Client locations included USA)",
+      "period": "October 2013 - November 2016",
+      "highlights": [
+        "Developed extensive hands-on experience in mainframe COBOL application design, development, testing, deployment, and maintenance.",
+        "Contributed to projects like Accum Load and WGS Claims SSCR for Anthem, focusing on data transfer and system maintenance.",
+        "Awarded Q2, 2014 Spot Award for “Execution Mindset” in Edits Validation and pricing Project and Q2, 2015 R&R Award for “Execution Mindset” in Accum load Project."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "BE (Electronics and Communication)",
+    "university": "Laxmi Narain College of Technology Indore (RGPV University)",
+    "year": "2013"
+  },
+  "certifications": [
+    "Mainframe Technology Training (October 2013 - December 2013)",
+    "Skillport Technical Certification",
+    "Skillport Communication Certification",
+    "Skillport Organizational Behavior Certification",
+    "Skillport Business English Certification",
+    "Skillport ISMS Certification"
+  ],
+  "proficiency_balance": [
+    {
+      "subject": "Mainframe Development",
+      "score": 95
+    },
+    {
+      "subject": "Insurance Domain",
+      "score": 90
+    },
+    {
+      "subject": "Healthcare Domain",
+      "score": 80
+    },
+    {
+      "subject": "Cloud Migration",
+      "score": 75
+    },
+    {
+      "subject": "Agile Methodologies",
+      "score": 70
+    },
+    {
+      "subject": "Project Leadership & Mentoring",
+      "score": 70
+    }
+  ]
 }

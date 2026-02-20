@@ -1,5 +1,5 @@
 import React from 'react';
-import { SKILLS, SITE_CONFIG } from '../constants';
+import { SKILLS, SITE_CONFIG, PROFICIENCY_BALANCE } from '../constants';
 import { Code, Cpu, Layers, Zap } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
@@ -11,15 +11,12 @@ const Skills: React.FC = () => {
     return <Zap className="text-yellow-400" />;
   };
 
-  // Mock data for the chart based on expertise implied in resume
-  const chartData = [
-    { subject: 'Generative AI', A: 95, fullMark: 100 },
-    { subject: 'React / FE', A: 90, fullMark: 100 },
-    { subject: 'Cloud / Dev', A: 85, fullMark: 100 },
-    { subject: 'Product Strategy', A: 88, fullMark: 100 },
-    { subject: 'Data / Ops', A: 80, fullMark: 100 },
-    { subject: 'Automation', A: 92, fullMark: 100 },
-  ];
+  // Transform data for the chart
+  const chartData = PROFICIENCY_BALANCE.map(item => ({
+    subject: item.subject,
+    A: item.score,
+    fullMark: 100
+  }));
 
   return (
     <section id="skills" className="py-20 scroll-mt-28 bg-slate-900/50">

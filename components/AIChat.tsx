@@ -23,6 +23,7 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isThinking, setIsThinking] = useState(false);
+  const [provider, setProvider] = useState<'gemini' | 'ollama'>('gemini');
 
   // Voice & Avatar State
   const [isVoiceMode, setIsVoiceMode] = useState(false);
@@ -250,7 +251,90 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
   };
 
 
+  // --- Ollama Implementation ---
+  const generateOllamaResponse = async (newMessages: ChatMessage[]) => {
+    const OLLAMA_URL = "http://localhost:11434/api/chat";
+    const MODEL = "llama3.2";
+
+    const conversation = newMessages.map(m => ({
+      role: m.role === 'model' ? 'assistant' : 'user',
+      content: m.text
+    }));
+
+    // System prompt as first message
+    conversation.unshift({ role: 'system', content: SITE_CONFIG.systemPrompt + "\n\nIMPORTANT: You have access to tools. If the user asks to check availability or book a meeting, you MUST output a JSON object with the tool name and arguments. Example: {\"tool\": \"checkAvailability\", \"args\": {\"date\": \"tomorrow\"}}. Do not output markdown or other text when calling a tool." });
+
+    try {
+      const response = await fetch(OLLAMA_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: MODEL,
+          messages: conversation,
+          stream: false,
+          format: "json" // Force JSON to help with tool calling parsing if we were strictly enforcing it, but for chat we might want text.
+          // Actually, for mixed chat/tool, Llama 3.2 is tricky without strict tool calling API. 
+          // We will use standard text mode and parse for JSON-like tool calls manually for simplicity in this demo.
+        })
+      });
+
+      if (!response.ok) throw new Error("Ollama connection failed");
+
+      const data = await response.json();
+      let aiText = data.message.content;
+
+      // Simple heuristic tool parsing for Ollama
+      // Looking for JSON pattern like {"tool": ...}
+      try {
+        const jsonMatch = aiText.match(/\{.*"tool":.*\}/s);
+        if (jsonMatch) {
+          const toolCall = JSON.parse(jsonMatch[0]);
+          let toolResult;
+
+          if (toolCall.tool === 'checkAvailability') {
+            toolResult = handleCheckAvailability(toolCall.args || {});
+          } else if (toolCall.tool === 'bookMeeting') {
+            toolResult = handleBookMeeting(toolCall.args || {});
+          } else if (toolCall.tool === 'openScheduler') {
+            onOpenBooking();
+            toolResult = { status: "success", message: "Opened scheduler." };
+          }
+
+          if (toolResult) {
+            // Feed result back to Ollama
+            conversation.push({ role: 'assistant', content: aiText });
+            conversation.push({ role: 'user', content: `Tool Result: ${JSON.stringify(toolResult)}` });
+
+            const followUp = await fetch(OLLAMA_URL, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ model: MODEL, messages: conversation, stream: false })
+            });
+            const followUpData = await followUp.json();
+            aiText = followUpData.message.content;
+          }
+        }
+      } catch (e) {
+        // Not a valid tool call, just plain text
+      }
+
+      const text = aiText;
+      if (isVoiceMode) speakText(text);
+      return text;
+
+    } catch (e) {
+      console.error("Ollama Error", e);
+      return "I couldn't connect to Ollama. Make sure it's running with `ollama serve` and `OLLAMA_ORIGINS=\"*\"`.";
+    }
+  };
+
+
   const generateResponse = async (newMessages: ChatMessage[]) => {
+    if (provider === 'ollama') {
+      return generateOllamaResponse(newMessages);
+    }
+
+    // Gemini Implementation (Existing)
     // Try to get API key from environment variables or window.aistudio
     let apiKey = import.meta.env.VITE_GEMINI_API_KEY || (window.aistudio ? await window.aistudio.getApiKey() : null);
 
@@ -259,7 +343,6 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
     }
 
     const systemInstruction = SITE_CONFIG.systemPrompt;
-
     const ai = new GoogleGenAI({ apiKey });
 
     // Convert chat history
@@ -270,7 +353,7 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
 
     try {
       let currentResponse = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-1.5-flash', // Updated to Flash for better availability
         contents: contents,
         config: {
           systemInstruction,
@@ -316,7 +399,7 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
         contents.push({ role: 'user', parts: parts });
 
         currentResponse = await ai.models.generateContent({
-          model: 'gemini-3-pro-preview',
+          model: 'gemini-1.5-flash',
           contents: contents,
           config: {
             systemInstruction,
@@ -394,7 +477,21 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
               </div>
               <div>
                 <h3 className="font-semibold text-white text-sm">{SITE_CONFIG.userName}'s AI Agent</h3>
-                <p className="text-xs text-slate-400">Powered by Gemini 3.0</p>
+                <div className="flex items-center mt-0.5 space-x-2">
+                  <button
+                    onClick={() => setProvider('gemini')}
+                    className={`text-[10px] uppercase font-bold tracking-wider transition-colors ${provider === 'gemini' ? 'text-accent' : 'text-slate-500 hover:text-slate-300'}`}
+                  >
+                    Gemini
+                  </button>
+                  <span className="text-slate-600">|</span>
+                  <button
+                    onClick={() => setProvider('ollama')}
+                    className={`text-[10px] uppercase font-bold tracking-wider transition-colors ${provider === 'ollama' ? 'text-green-400' : 'text-slate-500 hover:text-slate-300'}`}
+                  >
+                    Ollama (Local)
+                  </button>
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -434,8 +531,8 @@ const AIChat: React.FC<AIChatProps> = ({ onOpenBooking, isOpen, onToggle }) => {
                   </div>
                   <div
                     className={`p-3 rounded-2xl text-sm ${msg.role === 'user'
-                        ? 'bg-slate-700 text-white rounded-tr-none'
-                        : 'bg-indigo-950/80 border border-indigo-900/50 text-slate-200 rounded-tl-none'
+                      ? 'bg-slate-700 text-white rounded-tr-none'
+                      : 'bg-indigo-950/80 border border-indigo-900/50 text-slate-200 rounded-tl-none'
                       }`}
                   >
                     <ReactMarkdown components={{ p: ({ node, ...props }) => <p className="mb-0" {...props} /> }}>
